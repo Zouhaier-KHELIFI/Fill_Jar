@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://d3js.org/d3.v4.min.js"></script> 
+  </head>
+
+  <body>
+
+
+<div class="alert alert-info" style="width: 49%;" role="alert">
+    <p class="text-center">
+     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>      <strong>Hello! Fill Your Jar.</strong> 
+    </p>
+    </p>
+</div>
+
+  <form  method="POST" action="{{ url_for('process') }}" >
+
+         <div class="col-md-12">
+           <div class="form-group">
+               <div class="row">
+                   <div class="col-md-6">
+                       <label class="control-label" for="color">How many balls do you want to put in the jar?</label>
+                       <div class="form-group">
+                          <select required name="number" class="selectpicker form-control">
+              <option value="{{ o }}">select a number</option>
+           {% for number in numbers %}
+              <option value="{{ number}}">{{ number}}</option>
+              {% endfor %}
+            </select>
+                          
+                       </div>
+                   </div>
+               </div>
+              </div>
+		</div>
+
+
+
+<div class="col-md-12">
+           <div class="form-group">
+               <div class="row">
+                   <div class="col-md-6">
+                       <label class="control-label" for="number">Color of the balls:</label>
+                       <div class="form-group">
+                          <select required name="color" class="selectpicker form-control">
+<option value="{{ o }}">select a color</option>
+              {% for color in colors %}
+  
+              <option value="{{ color }}">{{ color }}</option>
+              {% endfor %}
+            </select>
+                       </div>
+                   </div>
+               </div>
+              </div>
+		</div>
+<div class="col-md-12">
+           <div class="form-group">
+               <div class="row">
+                   <div class="col-md-6">
+<button type="submit" class="btn btn-primary">Display</button>
+
+
+ </div>
+                   </div>
+               </div>
+              </div>
+
+
+</form>
+
+
+  </body>
+
+</html>
