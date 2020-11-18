@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://d3js.org/d3.v4.min.js"></script> 
+  </head>
+
+  <body>
+
+
+
+
+<div class="alert alert-info" style="width: 49%;" role="alert">
+    <p class="text-center">
+     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  <strong>Hello! Fill Your Jar.</strong> 
+</div> 
+
+  <form  method="POST" >
+
+         <div class="col-md-12">
+           <div class="form-group">
+               <div class="row">
+                   <div class="col-md-6">
+                       <label class="control-label" for="color">How many balls do you want to put in the jar?</label>
+                       <div class="form-group">
+                          <select required name="number" class="selectpicker form-control">
+              <option value="{{ o }}">select a number</option>
+           {% for number in numbers %}
+              <option value="{{ number}}">{{ number}}</option>
+              {% endfor %}
+            </select>
+                          
+                       </div>
+                   </div>
+               </div>
+              </div>
+		</div>
+
+
+
+<div class="col-md-12">
+           <div class="form-group">
+               <div class="row">
+                   <div class="col-md-6">
+                       <label class="control-label" for="number">Color of the balls:</label>
+                       <div class="form-group">
+                          <select required name="color" class="selectpicker form-control">
+<option value="{{ o }}">select a color</option>
+              {% for color in colors %}
+  
+              <option value="{{ color }}">{{ color }}</option>
+              {% endfor %}
+            </select>
+                       </div>
+                   </div>
+               </div>
+              </div>
+		</div>
+<div class="col-md-12">
+           <div class="form-group">
+               <div class="row">
+                   <div class="col-md-6">
+<button type="submit" class="btn btn-primary">Display</button>
+
+
+<a type="button" href="{{ url_for('home') }}" class="btn btn-primary">GO Back</a>
+ </div>
+                   </div>
+               </div>
+              </div>
+
+<img src="https://www.vectorkhazana.com/assets/images/products/Mason_jar_log.jpg" class="responsive" alt="Responsive image" width="15%" height="15%">
+<br/>  
+
+
+<br/>    
+        
+{% for color in process_list%}
+
+	<script>
+		draw("{{ color}}");
+
+		function draw(x){
+			var svg = d3.select("body")
+				    .append("svg")
+				    .append("g")
+			    svg.append("circle")
+			       .attr("cx", 15)
+			       .attr("cy", 5)
+			       .attr("r", 5)
+                               .attr("width", 5)
+                               .attr("height", 5)
+                                .attr("opacity",20)
+
+
+			       .attr("fill", x)
+
+		}
+
+	</script>
+
+{%endfor %}  
+
+ 
+  </div>
+  </div>
+</div>
+
+</form>
+
+
+  </body>
+
+</html>
