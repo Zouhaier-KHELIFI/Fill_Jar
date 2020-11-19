@@ -1,1 +1,1 @@
-web: gunicorn Fill-jar/Flask_process:app
+web: gunicorn Flask_process:app
